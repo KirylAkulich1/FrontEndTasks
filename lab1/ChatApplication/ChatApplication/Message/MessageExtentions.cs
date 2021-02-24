@@ -6,6 +6,7 @@ namespace ChatApplication.Messages
     {
         public static string ToJson(this Message self)
         {
+            self.ContentHash = self.Content.MD5Hash();
             return JsonSerializer.Serialize<Message>(self);
         }
     }

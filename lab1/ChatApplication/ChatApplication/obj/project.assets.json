@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kiryl/RiderProjects/ChatApplication/ChatApplication/ChatApplication.csproj",
+      "projectUniqueName": "/home/kiryl/FrontEndTasks/lab1/ChatApplication/ChatApplication/ChatApplication.csproj",
       "projectName": "ChatApplication",
-      "projectPath": "/home/kiryl/RiderProjects/ChatApplication/ChatApplication/ChatApplication.csproj",
+      "projectPath": "/home/kiryl/FrontEndTasks/lab1/ChatApplication/ChatApplication/ChatApplication.csproj",
       "packagesPath": "/home/kiryl/.nuget/packages/",
-      "outputPath": "/home/kiryl/RiderProjects/ChatApplication/ChatApplication/obj/",
+      "outputPath": "/home/kiryl/FrontEndTasks/lab1/ChatApplication/ChatApplication/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kiryl/.nuget/NuGet/NuGet.Config"
