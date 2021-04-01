@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<html lang="en" class="theme-light">
 <head>
     <meta charset="uft-8">
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,6 +15,12 @@
                 <li><a href="/support">Support</a></li>
                 <li class="nav-right">
                     <a href="/about">About</a>
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" onclick="toggleTheme()">
+                        <span class="slider"></span>
+                      </label>
                 </li>
             </ul>
         </nav>
@@ -38,4 +46,30 @@
             <p>Some text</p>
         </footer>
     </div>
+    <script>
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+            } else {
+                setTheme('theme-light');
+            }
+        })();
+    </script>
 </body>
+</html>
