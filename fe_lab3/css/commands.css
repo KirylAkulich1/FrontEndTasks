@@ -23,3 +23,47 @@
   transition: width .5s ease 0s, right .5s ease 0s;
   width: 0;
 }
+
+section header{
+  font-size: 2em;
+}
+
+.command-list{
+  display: block;
+}
+
+.command-list li{
+  display: block;
+}
+
+.command-list li::before{
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background-color: #11b1f0;
+}
+
+.command-list > li > input{
+    height: 2em;
+    font-size: 2em;
+}
+
+.command-control{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 2em;
+  padding-top: 1em;
+}
+
+a{
+  text-decoration: none;
+  padding: 1em 2em;
+  text-align: center;
+  color: inherit;
+}

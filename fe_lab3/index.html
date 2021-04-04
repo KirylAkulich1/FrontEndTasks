@@ -3,10 +3,15 @@
 <head>
     <meta charset="uft-8">
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
+        <header>
+            <h1 class="page-heading">Alias</h1>
+        </header>
         <nav>
             <ul class="site-nav">
                 <li><a href="/">Main</a></li>
@@ -17,16 +22,21 @@
                     <a href="/about">About</a>
                 </li>
                 <li>
-                    <label class="switch">
-                        <input type="checkbox" onclick="toggleTheme()">
-                        <span class="slider"></span>
-                      </label>
+                    <label>Theme</label>
+                    <label class="toggle" for="myToggle">
+                        <input class="toggle__input" name="" type="checkbox" id="myToggle" onclick="toggleTheme()">
+                        <div class="toggle__fill">
+                        </div>
+                    </label>
                 </li>
             </ul>
         </nav>
         <main>
-            <img class="flex-nonexpend-img" src="static/img/alias_img.png" />
-            <img class="flex-nonexpend-img" src="static/img/online_img.png"/> 
+            <figure>
+                <img class="flex-nonexpend-img" src="static/alias_img.png" />
+                <img class="flex-nonexpend-img" src="static/online_img.png"/>
+            </figure> 
+
             <section >
                 <h1>Online version of game
                     <span> Alias Party</span>
@@ -40,36 +50,10 @@
             <button class="primary-button">Play</button>
             <a class="animated-ref" href="/gamerules">Game Rules</a>
             <a class="animated-ref" href="/reverse">FQA</a>
-        </main>
+        </main> 
         <footer>
-            <h1>Some text</h1>
-            <p>Some text</p>
+            <p>© 2021 Kirill Akulich</p>
         </footer>
     </div>
-    <script>
-        // function to set a given theme/color-scheme
-        function setTheme(themeName) {
-            localStorage.setItem('theme', themeName);
-            document.documentElement.className = themeName;
-        }
-
-        // function to toggle between light and dark theme
-        function toggleTheme() {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-light');
-            } else {
-                setTheme('theme-dark');
-            }
-        }
-
-        // Immediately invoked function to set the theme on initial load
-        (function () {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-dark');
-            } else {
-                setTheme('theme-light');
-            }
-        })();
-    </script>
 </body>
 </html>

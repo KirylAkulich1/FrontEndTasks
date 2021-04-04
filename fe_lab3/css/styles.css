@@ -1,17 +1,24 @@
 .theme-light {
+    --text-color: rgb(255, 187, 0);
     --color-primary: #0060df;
     --color-secondary: #fbfbfe;
     --color-accent: #fd6f53;
     --font-color: #000000;
     --bg-color : rgb(178, 235, 232);
+    --nav-ref-color: rgb(235, 117, 8);
   }
-  .theme-dark {
+.theme-dark {
+    --text-color: rgb(248, 223, 152);
     --color-primary: #17ed90;
     --color-secondary: #243133;
     --color-accent: #12cdea;
     --font-color: #ffffff;
     --bg-color : rgb(36, 73, 129);
+    --nav-ref-color: rgb(255, 184, 117);
   }
+:root{
+  box-sizing: border-box;
+}
 
 *,
 ::before,
@@ -21,27 +28,89 @@
 
 body{
     background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--txt-color);
-}
-
-body * + *{
-    margin-top: 1.5em;
 }
 
 .container{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: auto auto 1fr auto;
     margin: 0 auto;
+    height: 100vh;
+}
+
+header,nav{
+  grid-column: 1 / 4;
+  grid-row: span 1;
+}
+
+.page-heading{
+  margin: 0;
 }
 
 .site-nav{
     display: flex;
     padding: 0.5em;
     padding-left: 0;
-    background-color: blue;
+    align-items: center;
     list-style-type: none;
+}
+
+header > h1{
+  animation: color-change 2s infinite;
+  text-align: center;
+}
+
+.toggle {
+  --width: 40px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: #dddddd;
+  transition: background 0.2s;
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+  background: #009578;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+main{
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .site-nav > li{
@@ -50,27 +119,28 @@ body * + *{
     margin-top: 0;
 }
 
-main{
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 footer{
     grid-column: 1 / 4;
-    grid-row: 3 / 4;
     background-color: black;
+    color: rgb(199, 199, 199);
+    display: flex;
+    justify-content: center;
 }
 
 .site-nav > li > a{
+    color: var(--nav-ref-color);
     display: block;
     padding: .5em 1em;
-    background-color: #cc6b5a;
-    color: white;
     text-decoration: none;
+    transition-property: all;
+    transition-duration: 0.5s;
 }
+.site-nav > li > a:hover{
+  background-color: var(--color-primary);
+  border-radius: 0.5em;
+}
+
 
 .site-nav > li+li{
     margin-left: 1.5em;
@@ -107,6 +177,7 @@ footer{
     color: #380c49;
     font-weight: bold;
     background-image: linear-gradient(180deg,rgb(196, 165, 101),rgb(255, 247, 129),rgb(175, 143, 73));
+    text-align: center;
 }
 
 section{
@@ -116,140 +187,24 @@ section{
 .animated-ref{
     transition-property: all;
     transition-duration: 0.5s;
-}
-
-.animated-ref:hover{
-    background-color: blueviolet;
-    border-radius: 0.5em;
-    padding: 1em 2em;
-}
-
-a{
-    font-size: large;
-    color: blue;
+    margin-top: 1em;
+    color: var(--text-color);
     text-decoration: none;
 }
 
-.checkbox{
-    display: block;
-    position: relative;
-   /* padding-left: 35px;*/
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+.animated-ref:hover{
+    background-color: var(--nav-ref-color);
+    border-radius: 0.5em;
+    padding: 1em 2em;
+    text-align: center;
+}
 
-  .checkbox input{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
+.game-logo img{
+  display: block;
+}
 
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-
-  .checkbox:hover input ~ .checkmark {
-    background-color: rgb(222, 231, 89);
-  }
-
-  .container input:checked ~ .checkmark {
-    background-color: #e48416;
-  }
-  
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-
-  .checkbox input:checked ~ .checkmark:after {
-    display: block;
-  }
-
-  .checkbox .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+@keyframes color-change {
+  0% { color: rgb(255, 238, 0); }
+  50% { color: rgb(111, 0, 255); }
+  100% { color: rgb(251, 255, 0); }
+}
