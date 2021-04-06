@@ -4,7 +4,7 @@
     --color-secondary: #fbfbfe;
     --color-accent: #fd6f53;
     --font-color: #000000;
-    --bg-color : rgb(178, 235, 232);
+    --bg-color : rgb(112, 153, 187);
     --nav-ref-color: rgb(235, 117, 8);
   }
 .theme-dark {
@@ -99,6 +99,7 @@ footer{
     font-weight: bold;
     background-image: linear-gradient(180deg,rgb(196, 165, 101),rgb(255, 247, 129),rgb(175, 143, 73));
     text-align: center;
+    text-decoration: none;
 }
 
 section{
@@ -129,3 +130,4 @@ section{
   50% { color: rgb(111, 0, 255); }
   100% { color: rgb(251, 255, 0); }
 }
+
