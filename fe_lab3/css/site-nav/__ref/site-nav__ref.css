@@ -1,0 +1,13 @@
+.site-nav__ref{
+    color: var(--nav-ref-color);
+    display: block;
+    padding: .5em 1em;
+    text-decoration: none;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.site-nav__ref:hover{
+    background-color: var(--color-primary);
+    border-radius: 0.5em;
+}

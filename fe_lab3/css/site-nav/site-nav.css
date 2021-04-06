@@ -1,0 +1,7 @@
+.site-nav{
+    display: flex;
+    padding: 0.5em;
+    padding-left: 0;
+    align-items: center;
+    list-style-type: none;
+}

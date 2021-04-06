@@ -1,0 +1,8 @@
+.toggle {
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+  
+    display: inline-block;
+    cursor: pointer;
+  }

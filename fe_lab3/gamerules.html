@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+<head>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <link rel="stylesheet" href="css/site-nav/site-nav.css" />
+    <link rel="stylesheet" href="css/site-nav/__item/site-nav__item.css"/>
+    <link rel="stylesheet" href="css/site-nav/__item/_right/site-nav__item-right.css"/>
+    <link rel="stylesheet" href="css/site-nav/__ref/site-nav__ref.css"/>
+
+    <link rel="stylesheet" href="css/toggle/__fill/toggle_fill.css" />
+    <link rel="stylesheet" href="css/toggle/__input/toggle_input.css" />
+    <link rel="stylesheet" href="css/toggle/toggle.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-heading">Alias</h1>
+        </header>
+        <nav>
+            <ul class="site-nav">
+                <li class="site-nav__item"><a class="site-nav__ref" href="index.html">Main</a></li>
+                <li class="site-nav__item site-nav__item-right">
+                    <a>Theme</a>
+                </li>
+                <li class="site-nav__item">
+                    <label class="toggle" for="myToggle">
+                        <input class="toggle__input" name="" type="checkbox" id="myToggle" onclick="toggleTheme()">
+                        <div class="toggle__fill">
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <figure class="game-logo">
+                <img class="flex-nonexpend-img" src="static/alias_img.png" />
+                <img class="flex-nonexpend-img" src="static/online_img.png"/>
+            </figure> 
+
+            <article >
+                <header> An exciting team game for a cheeful company</header>
+                <p>The task of each player is to explain as many words as possible to teammates for a limited time</p>
+                <p>It is forbidden to use cognate words,to translate from other languages</p>
+                <p>Each guessed word brigns one point to the team.and for the missed word the team gets a penalty</p>
+                <p>The winner is the team that has the necessary number of points</p>
+            </article>
+            <button class="primary-button">Play</button>
+            <a class="animated-ref" href="/gamerules">Game Rules</a>
+        </main> 
+        <footer>
+            <p>© 2021 Kirill Akulich</p>
+        </footer>
+    </div>
+</body>
+</html>

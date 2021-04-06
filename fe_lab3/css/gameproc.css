@@ -1,0 +1,29 @@
+.game-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+.game-word-area{
+    text-align: center;
+    flex-grow: 2;
+}
+
+.team-name{
+    margin: 0.5em 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+main label{
+    color: inherit;
+    font-size: 1.5em;
+}
+
+.guessed-score{
+    color: forestgreen;
+    font-size: 2em;
+    margin: .5em 0;
+}

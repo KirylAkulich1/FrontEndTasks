@@ -2,8 +2,18 @@
 <html lang="en" class="theme-light">
 <head>
     <meta charset="uft-8">
+
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/main.css"/>
+    
+    <link rel="stylesheet" href="css/site-nav/site-nav.css" />
+    <link rel="stylesheet" href="css/site-nav/__item/site-nav__item.css"/>
+    <link rel="stylesheet" href="css/site-nav/__item/_right/site-nav__item-right.css"/>
+    <link rel="stylesheet" href="css/site-nav/__ref/site-nav__ref.css"/>
+
+    <link rel="stylesheet" href="css/toggle/__fill/toggle_fill.css" />
+    <link rel="stylesheet" href="css/toggle/__input/toggle_input.css" />
+    <link rel="stylesheet" href="css/toggle/toggle.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/main.js"></script>
 </head>
@@ -14,15 +24,12 @@
         </header>
         <nav>
             <ul class="site-nav">
-                <li><a href="/">Main</a></li>
-                <li><a href="/features">Features</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/support">Support</a></li>
-                <li class="nav-right">
-                    <a href="/about">About</a>
+                <li class="site-nav__item"><a class="site-nav__ref" href="/">Main</a></li>
+                <li class="site-nav__item"><a class="site-nav__ref" href="gamerules.html">Game Rules</a></li>
+                <li class="site-nav__item site-nav__item-right">
+                    <a>Theme</a>
                 </li>
-                <li>
-                    <label>Theme</label>
+                <li class="site-nav__item">
                     <label class="toggle" for="myToggle">
                         <input class="toggle__input" name="" type="checkbox" id="myToggle" onclick="toggleTheme()">
                         <div class="toggle__fill">
@@ -32,7 +39,7 @@
             </ul>
         </nav>
         <main>
-            <figure>
+            <figure class="game-logo">
                 <img class="flex-nonexpend-img" src="static/alias_img.png" />
                 <img class="flex-nonexpend-img" src="static/online_img.png"/>
             </figure> 
@@ -49,7 +56,6 @@
             </section>
             <button class="primary-button">Play</button>
             <a class="animated-ref" href="/gamerules">Game Rules</a>
-            <a class="animated-ref" href="/reverse">FQA</a>
         </main> 
         <footer>
             <p>© 2021 Kirill Akulich</p>
