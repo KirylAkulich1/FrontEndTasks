@@ -35,7 +35,7 @@ section header{
 .command-list li{
   display: block;
 }
-
+/*
 .command-list li::before{
   content: '';
   display: inline-block;
@@ -47,6 +47,7 @@ section header{
   border-radius: 7.5px;
   background-color: #11b1f0;
 }
+*/
 
 .command-list > li > input{
     height: 2em;
