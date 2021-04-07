@@ -9,4 +9,4 @@
   
   .toggle__input:checked ~ .toggle__fill::after {
     transform: translateX(var(--height));
-  }
+}
