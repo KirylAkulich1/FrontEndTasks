@@ -22,4 +22,7 @@ function toggleTheme() {
     } else {
         setTheme('theme-light');
     }
+    fetch('./index.html')
+        .then(r => r.text())
+        .then(t => console.log(t))
 })();
