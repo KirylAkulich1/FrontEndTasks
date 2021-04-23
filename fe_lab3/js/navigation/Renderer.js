@@ -4,14 +4,14 @@ const htmlFileslList = {
     gameProc: "./views/gameproc.html",
     home : "./views/index.html",
     settings : "./views/settings.html"
-}
+};
 
 
-class Renderer{
+class PageRenderer{
 
     body;
     constructor(){
-        body = null || document.querySelector('body')
+        this.body = null || document.querySelector('body')
     }
     async renderHomePageAsync(){
         this.insertViewToDocument(
@@ -49,11 +49,12 @@ class Renderer{
     }
 
     insertViewToDocument(view){
-        body.innerHTML = view
+        this.body.innerHTML = view
     }
+
 }
 
 
-renderer = Renderer()
+const renderer = new PageRenderer();
 
-export default renderer
+export default renderer;

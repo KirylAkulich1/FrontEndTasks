@@ -7,6 +7,6 @@ class BusyOverlayService{
     }
 }
 
-busyOverlayService = new BusyOverlayService();
+const busyOverlayService = new BusyOverlayService();
 
-export default busyOverlay
+export default busyOverlayService;

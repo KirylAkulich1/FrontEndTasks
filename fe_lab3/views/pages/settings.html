@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+<head>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/settings.css"/>
+
+    <link rel="stylesheet" href="css/site-nav/site-nav.css" />
+    <link rel="stylesheet" href="css/site-nav/--item/site-nav__item.css"/>
+    <link rel="stylesheet" href="css/site-nav/--item/-right/site-nav__item-right.css"/>
+    <link rel="stylesheet" href="css/site-nav/--ref/site-nav__ref.css"/>
+
+    <link rel="stylesheet" href="css/toggle/--fill/toggle_fill.css" />
+    <link rel="stylesheet" href="css/toggle/--input/toggle_input.css" />
+    <link rel="stylesheet" href="css/toggle/toggle.css" />
+   
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-heading">Alias</h1>
+        </header>
+        <nav>
+            <ul class="site-nav">
+                <li class="site-nav__item"><a class="site-nav__ref" href="index.html">Main</a></li>
+                <li class="site-nav__item"><a class="site-nav__ref" href="gamerules.html">Game Rules</a></li>
+                <li class="site-nav__item site-nav__item-right">
+                    <a>Theme</a>
+                </li>
+                <li class="site-nav__item">
+                    <label class="toggle" for="myToggle">
+                        <input class="toggle__input" name="" type="checkbox" id="myToggle" onclick="toggleTheme()">
+                        <div class="toggle__fill">
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <header>Settings</header>
+            <ul class="settings-list">
+                <li>
+                    <section>
+                    <header>Round</header>
+                        <ul>
+                            <li>
+                                <div class="checkbox-container">
+                                    <label class="checkbox">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label>60 sec</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-container">
+                                <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                </label>
+                                <label>90 sec</label>
+                                </div>
+                        </li>
+                            <li>
+                                <div class="checkbox-container">
+                                <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label><label>120 sec</label>
+                            </div>
+                        </li>
+                        </ul>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                    <header>Disctionary</header>
+                    <ul>
+                            <li><div class="checkbox-container"><input type="checkbox"><label>Easy</label></div></li>
+                            <li><div class="checkbox-container"><input type="checkbox"><label>Medium</label></div></li>
+                            <li><div class="checkbox-container"><input type="checkbox"><label>Hard</label></div></li>
+                    </ul>
+                    </section>
+                </li>
+                <section>
+                <li>
+                    <header>Language</header>
+                    <ul>
+                        <li><div class="checkbox-container">
+                            <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label>Russian</label>
+                        </div>
+                    </li>
+                        <li>
+                            <div class="checkbox-container">
+                            <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label><label>English</label>
+                        </div>
+                    </li>
+                    </ul>
+                </li>
+                </section>
+            </ul>
+            <a class="primary-button" href="commands.html">Next</a>
+        </main>
+        <footer>
+            <p>© 2021 Kirill Akulich</p>
+        </footer>
+    </div>
+</body>
+</html>
