@@ -1,20 +1,21 @@
 import {View} from './View.js'
 
-const navigationBarPath = ''
+const navigationBarPath = './views/widgets/navigationPanel.html'
 
-class NavigationView extends View{
+export class NavigationView extends View{
     navigationBar;
     
     async RenderAsync(){
-        navBarCode = await fetch(navigationBarPath)
+        let navBarCode = await fetch(navigationBarPath)
             .then(r=>r.text());
-        container = document.getElementById('page-container');
-        navigatinElement = View.htmlToElemt(navBarCode);
-        container.appendChild(navigatinElement);
+        console.log(navBarCode);
+        let container = document.getElementById('site-navigation-bar');
+        let navigatinElement = View.htmlToElemt(navBarCode);
+        container.replaceWith(navigatinElement);
     }
 
     SetCommand(buttinId, command){
-        button = document.getElementById(buttinId);
+        let button = document.getElementById(buttinId);
         button.onclick = command;
     }
 }

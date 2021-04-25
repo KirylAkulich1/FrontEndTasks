@@ -17,37 +17,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="js/main.js"></script>
-    <script type="module" src="js/navigation/NavigationService.js"></script>
+    <!--<script type="module" src="js/navigation/NavigationService.js"></script>-->
+    <script type ="module" src="js/WindowController.js"></script>
+
 </head>
 <body>
     <div id="overlay"></div> 
-    <div id = 'page-contaoner' class="container">
+    <div class="container">
         <header>
             <h1 class="page-heading">Alias</h1>
         </header>
-
-        <main>
-            <figure class="game-logo">
-                <img class="flex-nonexpend-img" src="static/alias_img.png" />
-                <img class="flex-nonexpend-img" src="static/online_img.png"/>
-            </figure> 
-
-            <section >
-                <h1>Online version of game
-                    <span> Alias Party</span>
-                </h1>
-                <h2>
-                    Created by board game Alias,including items
-                    (gameboard,chips,cards with words,sand glasses).
-                    Now you can play Alias on any device with browser.
-                </h2>
-            </section>
-            <a class="primary-button"href="settings.html" >Play</a>
-            <a class="animated-ref" href="gamerules.html">Game Rules</a>
-        </main> 
-        <footer>
-            <p>© 2021 Kirill Akulich</p>
-        </footer>
+        <nav id='site-navigation-bar'>Navigtion Bar</nav>
+        <main id = 'page-container'>Content</main>
     </div>
 </body>
 </html>

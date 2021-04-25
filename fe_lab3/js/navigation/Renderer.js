@@ -1,17 +1,18 @@
+import {container} from '../Container.js'
 const htmlFileslList = {
-    gameRules: "./views/gamerules.html",
-    commands: "./views/commands.html",
-    gameProc: "./views/gameproc.html",
-    home : "./views/index.html",
-    settings : "./views/settings.html"
+    gameRules: "./views/pages/gamerules.html",
+    commands: "./views/pages/commands.html",
+    gameProc: "./views/pages/gameproc.html",
+    home : "./views/pages/homepage.html",
+    settings : "./views/pages/settings.html"
 };
 
 
-class PageRenderer{
+export class PageRenderer{
 
-    body;
+    container;
     constructor(){
-        this.body = null || document.querySelector('body')
+        this.container = null || document.getElementById('page-container');
     }
     async renderHomePageAsync(){
         this.insertViewToDocument(
@@ -43,13 +44,22 @@ class PageRenderer{
         );
     }
 
-    async loadViewFromFile(path){
-        return await fetch(path)
-                .then(r=>r.text())
+    loadViewFromFile(path){
+        return fetch(path)
+                .then(r=>r.text());
     }
 
     insertViewToDocument(view){
-        this.body.innerHTML = view
+        container.logger.Log(this,view);
+        this.container.replaceWith( this.htmlToElemt(view));
+        console.log(view);
+    }
+
+    htmlToElemt(html) {
+        var template = document.createElement('template');
+        html = html.trim(); // Never return a text node of whitespace as the result
+        template.innerHTML = html;
+        return template.content.firstChild;
     }
 
 }

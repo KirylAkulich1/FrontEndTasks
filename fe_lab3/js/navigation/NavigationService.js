@@ -1,18 +1,20 @@
 import busyOverlayService from '../BusyOverlayService.js';
-import renderer from './Renderer.js';
+import {MainPage} from '../pages/MainPage.js'
+
 
 const urlList = {
     gameRules: "gamerules.html",
     commands: "commands.html",
     gameProc: "gameproc.html",
     home : "index.html",
-    settings : "settings.html"
+    settings : "settings.html",
+    error : "error.html"
 };
 
 
 console.log("Fileloded");
 
-class NavigationService{
+export class NavigationService{
     currentState
     currentUrl
     
@@ -20,7 +22,6 @@ class NavigationService{
         
         await busyOverlayService.showWhileExecutingAsync(
             async () => {
-                await renderer.renderGameRulesPageAsync();
                 this.navigateToPage(urlList.gameRules);
             }
         );
@@ -39,6 +40,16 @@ class NavigationService{
     }
 
     async navigateToHomePageAsync(){
+        await busyOverlayService.showWhileExecutingAsync(
+            async ()=>{
+                this.navigateToPage(urlList.home);
+                this.currentState = new MainPage();
+                await this.currentState.LoadPageAsync();
+            }
+        )
+    }
+
+    async navigateToErrorPageAsync(){
 
     }
 
@@ -46,13 +57,9 @@ class NavigationService{
         window.history.pushState(this.currentState,null,url)
     }
 
-    OnPageResored(){
 
-    }
 }
 
 console.log("Fileloded");
-let navigationService = new NavigationService();
+export let navigationService = new NavigationService();
 
-document.getElementById("navigation-gamerules").addEventListener("click",
-    () => {return navigationService.navigateToGameRulesAsync()});
