@@ -1,3 +1,4 @@
+
 export class AbstactPage{
     LoadPage(){throw new Error("Not implemented")}
     ResorePage(page){throw new Error("Not Implemented")}

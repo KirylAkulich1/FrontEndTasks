@@ -1,5 +1,6 @@
 import busyOverlayService from '../BusyOverlayService.js';
-import {MainPage} from '../pages/MainPage.js'
+import {MainPage} from '../pages/MainPage.js';
+import { GameRulesPage } from '../pages/NavigationPage.js';
 
 
 const urlList = {
@@ -15,16 +16,13 @@ const urlList = {
 console.log("Fileloded");
 
 export class NavigationService{
-    currentState
-    currentUrl
+    currentState;
+    currentUrl;
     
     async navigateToGameRulesAsync(){
-        
-        await busyOverlayService.showWhileExecutingAsync(
-            async () => {
+                this.currentState = new GameRulesPage();
                 this.navigateToPage(urlList.gameRules);
-            }
-        );
+                await this.currentState.LoadPageAsync();
     }
     
     async navigateToGameSettingsAsync(){
@@ -40,13 +38,9 @@ export class NavigationService{
     }
 
     async navigateToHomePageAsync(){
-        await busyOverlayService.showWhileExecutingAsync(
-            async ()=>{
-                this.navigateToPage(urlList.home);
                 this.currentState = new MainPage();
+                this.navigateToPage(urlList.home);
                 await this.currentState.LoadPageAsync();
-            }
-        )
     }
 
     async navigateToErrorPageAsync(){

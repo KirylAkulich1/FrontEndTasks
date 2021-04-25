@@ -51,7 +51,7 @@ export class PageRenderer{
 
     insertViewToDocument(view){
         container.logger.Log(this,view);
-        this.container.replaceWith( this.htmlToElemt(view));
+        document.getElementById('page-container').replaceWith( this.htmlToElemt(view));
         console.log(view);
     }
 

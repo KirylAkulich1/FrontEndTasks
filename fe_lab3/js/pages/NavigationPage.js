@@ -1,6 +1,7 @@
 import {AbstactPage} from './Page.js';
 import {NavigationView} from '../widgets/NavigationView.js';
 import {container} from '../Container.js';
+import renderer from '../navigation/Renderer.js';
 
 export class NavigationPage extends AbstactPage{
     navigationBar;
@@ -9,10 +10,10 @@ export class NavigationPage extends AbstactPage{
         await this.navigationBar.RenderAsync()
         
         this.navigationBar.SetCommand(
-            'site-nav-view-to-index',container.navigationService.navigateToHomePageAsync
+            'site-nav-view-to-index',() => {return container.navigationService.navigateToHomePageAsync();}
         );
         this.navigationBar.SetCommand(
-            'site-nav-to-game-rules',container.navigationService.navigateToGameRulesAsync
+            'site-nav-to-game-rules',()=> { return container.navigationService.navigateToGameRulesAsync();}
         );
     }
 }
@@ -20,5 +21,12 @@ export class NavigationPage extends AbstactPage{
 export class StatelessPage extends NavigationPage{
     RestorePage(page){
         return
+    }
+}
+
+export class GameRulesPage extends StatelessPage{
+    async LoadPageAsync(){
+        await super.LoadPageAsync();
+        await renderer.renderGameRulesPageAsync();
     }
 }
