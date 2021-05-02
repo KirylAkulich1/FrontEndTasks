@@ -1,6 +1,7 @@
 import busyOverlayService from '../BusyOverlayService.js';
 import {MainPage} from '../pages/MainPage.js';
 import { GameRulesPage } from '../pages/NavigationPage.js';
+import { SettingsPage } from '../pages/SettingsPage.js';
 
 
 const urlList = {
@@ -26,7 +27,10 @@ export class NavigationService{
     }
     
     async navigateToGameSettingsAsync(){
-
+        console.log('')
+        this.currentState = new SettingsPage();
+        this.navigateToPage(urlList.settings)
+        await this.currentState.LoadPageAsync();
     }
 
     async navigateToGameProcessAsync(){
@@ -48,7 +52,7 @@ export class NavigationService{
     }
 
     navigateToPage(url){
-        window.history.pushState(this.currentState,null,url)
+        window.history.pushState({},null,url)
     }
 
 
