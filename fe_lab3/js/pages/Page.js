@@ -9,8 +9,3 @@ export class AbstactPage{
     LoadPageAsync(){throw new Error("Not Implemented")}
 }
 
-export class CommandListPage extends AbstactPage{
-    onPageResored(page){
-        return
-    }
-}

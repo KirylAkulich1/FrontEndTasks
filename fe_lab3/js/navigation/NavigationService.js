@@ -1,4 +1,5 @@
 import busyOverlayService from '../BusyOverlayService.js';
+import { CommandListPage } from '../pages/CommandListPage.js';
 import {MainPage} from '../pages/MainPage.js';
 import { GameRulesPage } from '../pages/NavigationPage.js';
 import { SettingsPage } from '../pages/SettingsPage.js';
@@ -14,8 +15,6 @@ const urlList = {
 };
 
 
-console.log("Fileloded");
-
 export class NavigationService{
     currentState;
     currentUrl;
@@ -27,18 +26,20 @@ export class NavigationService{
     }
     
     async navigateToGameSettingsAsync(){
-        console.log('')
+
         this.currentState = new SettingsPage();
         this.navigateToPage(urlList.settings)
         await this.currentState.LoadPageAsync();
     }
 
     async navigateToGameProcessAsync(){
-
     }
 
     async navigateToCommandListAsync(){
-
+        console.log('Navigate to command list');
+        this.currentState = new CommandListPage();
+        this.navigateToPage(urlList.commands);
+        await this.currentState.LoadPageAsync();
     }
 
     async navigateToHomePageAsync(){

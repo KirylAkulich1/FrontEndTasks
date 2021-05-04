@@ -8,7 +8,7 @@ export class SettingsPage extends NavigationPage{
     durationRadioButtonGroup
     modeRadioButtonGroup
     dictionaryRadionButtonGroup
-
+    toCommandListButton
     async LoadPageAsync(){
         super.LoadPageAsync();
         await renderer.renderSettingsPageAsync();
@@ -29,6 +29,9 @@ export class SettingsPage extends NavigationPage{
             this.settings.dictionary = value;
         }
 
+        this.toCommandListButton = new Button(this.container.idResolver.to_commands_button);
+        this.toCommandListButton.SetCommand(()=>this.container.navigationService.navigateToCommandListAsync());
+        console.log(this.toCommandListButton)
         console.log(this.settings);
     }
 }

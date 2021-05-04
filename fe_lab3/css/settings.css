@@ -27,11 +27,11 @@ section li+li{
   
 }
 
-.checkbox-container{
+.radio-container{
   display: flex;
   margin-top: .5em;
 }
-.checkbox{
+.radio{
     display: block;
     position: relative;
     padding-left: 35px;
@@ -44,7 +44,7 @@ section li+li{
     user-select: none;
   }
 
-  .checkbox input{
+  .radio input{
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -62,7 +62,7 @@ section li+li{
     border-radius: 50%;
   }
 
-  .checkbox:hover input ~ .checkmark {
+  .radio:hover input ~ .checkmark {
     background-color: rgb(222, 231, 89);
   }
 
@@ -76,11 +76,11 @@ section li+li{
     display: none;
   }
 
-  .checkbox input:checked ~ .checkmark:after {
+  .radio input:checked ~ .checkmark:after {
     display: block;
   }
 
-  .checkbox .checkmark:after {
+  .radio .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
