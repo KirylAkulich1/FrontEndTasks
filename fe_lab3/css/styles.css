@@ -120,7 +120,18 @@ footer{
     text-align: center;
     text-decoration: none;
 }
-
+.destroy-button{
+  border-color: rgb(221, 111, 111);
+  padding: 1em 3em;
+  border-radius: 1em;
+  border-width: .2em;
+  background: inherit;
+  font-size: large;
+  color: rgb(221, 111, 111);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
 section{
     text-align: center;
 }
