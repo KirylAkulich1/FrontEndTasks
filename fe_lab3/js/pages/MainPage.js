@@ -8,8 +8,10 @@ export class MainPage extends NavigationPage {
     async LoadPageAsync(){
         super.LoadPageAsync();
         await renderer.renderHomePageAsync();
-
-                
+        let appConfig = await this.container.db.GetAppConfigAsync();
+        
+        window.localStorage.setItem('appConfig',JSON.stringify(appConfig));
+        console.log(appConfig);
         this.playButton = new Button(this.container.idResolver.play_button)
         this.playButton.SetCommand(()=>{ return this.container.navigationService.navigateToGameSettingsAsync();})
 

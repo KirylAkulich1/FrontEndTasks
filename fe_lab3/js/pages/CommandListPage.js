@@ -2,6 +2,7 @@ import { NavigationPage } from "./NavigationPage.js";
 import {CommandListView} from "../widgets/CommandList/CommandListView.js"
 import {CommandListItem} from "../widgets/CommandList/CommandListItem.js"
 import { Button } from "../widgets/Button.js";
+import { Utils } from "../utils/Utils.js";
 
 export class CommandListPage extends NavigationPage{
     commandList;
@@ -10,8 +11,15 @@ export class CommandListPage extends NavigationPage{
     async LoadPageAsync(){
         super.LoadPageAsync();
         await this.container.renderer.renderCommandsPageAsync();
-       
+
+        let appConfig = JSON.parse(window.localStorage.getItem('appConfig'));
+        let commandIndexes = Utils.getRandomNumbers(appConfig.commands);
+
+        let commandArray = await this.container.db.GetCommandNamesAsync(commandIndexes); 
         this.commandList = new CommandListView(this.container.idResolver.command_list,CommandListItem);
+        this.commandList.AddRange(commandArray);
+
+
         this.addCommandButton = new Button(this.container.idResolver.add_command_button);
         this.addCommandButton.SetCommand(()=>this.commandList.AddCommandName('New Command'));
 

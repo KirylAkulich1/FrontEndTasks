@@ -25,4 +25,9 @@ export class CommandListView extends View{
         console.log(this.htmlListView);
         this.htmlListView.appendChild(itemToPush.html_elemet);
     }
+
+    AddRange(range){
+        console.log(range);
+        range.forEach(item=> this.AddCommandName(item));
+    }
 }
