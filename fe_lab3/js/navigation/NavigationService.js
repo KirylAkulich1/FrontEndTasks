@@ -1,5 +1,6 @@
 import busyOverlayService from '../BusyOverlayService.js';
 import { CommandListPage } from '../pages/CommandListPage.js';
+import { GameProcessPage } from '../pages/GameProcessPage.js';
 import {MainPage} from '../pages/MainPage.js';
 import { GameRulesPage } from '../pages/NavigationPage.js';
 import { SettingsPage } from '../pages/SettingsPage.js';
@@ -33,6 +34,10 @@ export class NavigationService{
     }
 
     async navigateToGameProcessAsync(){
+        console.log('Navigate to game proc');
+        this.currentState = new GameProcessPage();
+        this.navigateToPage(urlList.gameProc);
+        await this.currentState.LoadPageAsync();
     }
 
     async navigateToCommandListAsync(){

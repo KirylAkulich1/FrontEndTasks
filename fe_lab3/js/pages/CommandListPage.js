@@ -8,6 +8,7 @@ export class CommandListPage extends NavigationPage{
     commandList;
     addCommandButton;
     deleteCommandButton;
+    startButton;
     async LoadPageAsync(){
         super.LoadPageAsync();
         await this.container.renderer.renderCommandsPageAsync();
@@ -25,5 +26,9 @@ export class CommandListPage extends NavigationPage{
 
         this.deleteCommandButton = new Button(this.container.idResolver.delete_command_button);
         this.deleteCommandButton.SetCommand(()=>this.commandList.RemoveLastName());
+
+        this.startButton = new Button(this.container.idResolver.start_game);
+        this.startButton.SetCommand(()=>this.container.navigationService.navigateToGameProcessAsync());
+        
     }
 }

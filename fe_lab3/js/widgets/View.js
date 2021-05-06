@@ -4,6 +4,10 @@ export class View{
     Show() {return}
     RenderAsync(){return}
     
+    SetBackground(color){
+
+    }
+
     static htmlToElemt(html) {
         var template = document.createElement('template');
         html = html.trim(); // Never return a text node of whitespace as the result
