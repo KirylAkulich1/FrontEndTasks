@@ -14,7 +14,14 @@ export class GameProcessPage extends AbstactPage{
     async LoadPageAsync(){
         await this.container.renderer.renderGameProcessPageAsync();
 
-        this.timer = new Timer(this.container.idResolver.game_timer,1000,90000,()=>{},()=>{this.gameController.ShowCommandResult()});
+        this.timer = new Timer(this.container.idResolver.game_timer,1000,90000,()=>{
+            var audio = new Audio(
+                'https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
+            audio.play();
+            if(this.timer.totalTime /1000 < 10){
+
+            }
+        },()=>{this.gameController.ShowCommandResult()});
         
         this.gameController = new GameController([]);
 
