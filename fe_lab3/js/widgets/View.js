@@ -1,4 +1,10 @@
+import {container} from '../Container.js';
 export class View{
+    container;
+    htmlView;
+    constructor(){
+        this.container = container;
+    }
     Render(){return}
     Hide() {return}
     Show() {return}

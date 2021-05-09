@@ -1,4 +1,5 @@
 import busyOverlayService from '../BusyOverlayService.js';
+import { AdminPage } from '../pages/AdminPage.js';
 import { CommandListPage } from '../pages/CommandListPage.js';
 import { GameProcessPage } from '../pages/GameProcessPage.js';
 import {MainPage} from '../pages/MainPage.js';
@@ -12,7 +13,8 @@ const urlList = {
     gameProc: "gameproc.html",
     home : "index.html",
     settings : "settings.html",
-    error : "error.html"
+    error : "error.html",
+    admin : "admin.html"
 };
 
 
@@ -57,6 +59,15 @@ export class NavigationService{
 
     }
 
+    async navigateToAdminPanelPageAsync(){
+        this.currentState = new AdminPage();
+        this.navigateToPage(urlList.admin);
+        await this.currentState.LoadPageAsync();
+    }
+
+    GoBack(){
+        window.history.back();
+    }
     navigateToPage(url){
         window.history.pushState({},null,url)
     }

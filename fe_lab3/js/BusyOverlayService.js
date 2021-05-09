@@ -1,4 +1,4 @@
-class BusyOverlayService{
+export class BusyOverlayService{
     async showWhileExecutingAsync(func){
         let busyOverlay=  document.getElementById("overlay");
         busyOverlay.style.display = "block";

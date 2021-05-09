@@ -11,5 +11,13 @@ export const IDResolver = {
     start_timer:'start-timer',
     stop_timer:'stop-timer',
     skip_word:'skip_word',
-    page_container:'page-container'
+    page_container:'page-container',
+    modal_window: 'modal-window',
+    modal_window_body : 'modal-window-body',
+    modal_window_close_button : 'modal-window-close-button',
+    login_form : 'login-form',
+    word_mange : 'word-manage',
+    admin_language_dropdown : 'choose-lang',
+    admin_level_dropdown : 'choose-level'
+
 }

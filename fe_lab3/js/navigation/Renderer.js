@@ -4,7 +4,8 @@ const htmlFileslList = {
     commands: "./views/pages/commands.html",
     gameProc: "./views/pages/gameproc.html",
     home : "./views/pages/homepage.html",
-    settings : "./views/pages/settings.html"
+    settings : "./views/pages/settings.html",
+    admin : "./views/pages/adminpanel.html"
 };
 
 
@@ -44,6 +45,12 @@ export class PageRenderer{
         );
     }
 
+    async renderAdminPanelPageAsync(){
+        this.insertViewToDocument(
+            await this.loadViewFromFile(htmlFileslList.admin)
+        )
+    }
+
     loadViewFromFile(path){
         return fetch(path)
                 .then(r=>r.text());
@@ -52,7 +59,6 @@ export class PageRenderer{
     insertViewToDocument(view){
         container.logger.Log(this,view);
         document.getElementById('page-container').replaceWith( this.htmlToElemt(view));
-        console.log(view);
     }
 
     htmlToElemt(html) {

@@ -18,15 +18,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="js/main.js"></script>
-    <script src="js/hammer.min.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/hammer.min.js"></script>
     <!--<script type="module" src="js/navigation/NavigationService.js"></script>-->
     <script type ="module" src="js/WindowController.js"></script>
 
@@ -34,11 +35,10 @@
 <body>
     <div id="overlay"></div> 
     <div id="modal-window" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+        <div  class="modal-content">
+          <span id = "modal-window-close-button" class="close">&times;</span>
+          <div id="modal-window-body"> </div>
         </div>
-      
     </div>
     <div class="container">
         <header>
