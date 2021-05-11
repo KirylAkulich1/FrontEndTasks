@@ -29,5 +29,7 @@ export const IDResolver = {
     command_result_guessed_words : 'guessed-words',
     command_name:'command-name',
     command_result:'command-result',
-    team_name : 'team-name'
+    team_name : 'team-name',
+    navigate_game_history : 'site-nav-to-game-history',
+    game_history_table : 'game-history'
 }

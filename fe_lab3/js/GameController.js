@@ -48,8 +48,22 @@ export class GameController{
                 modalWindow.Hide();
                 const max = this.commandScore.reduce((a,b)=>a.score > b.score ? a : b);
                 alert(`Winner is ${max.command}. Score : ${max.score}`);
+                const gameHistory = JSON.parse(localStorage.getItem('gameHistory'));
+                if(gameHistory == undefined){
+                    gameHistory = [];
+                }
+                var today = new Date();
+                
+                today = parseInt(today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear()+"\nTime : "+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+                gameHistory.push({
+                    currentDate : today,
+                    winner : max.command,
+                    points : max.score
+                });
+                localStorage.setItem('gameHistory',JSON.stringify(gameHistory));
+
                 return container.navigationService.navigateToHomePageAsync();
-            })
+            });
         }
 
         await modalWindow.ShowWindowAsync({
