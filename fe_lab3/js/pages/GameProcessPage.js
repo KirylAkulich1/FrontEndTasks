@@ -40,7 +40,7 @@ export class GameProcessPage extends AbstactPage{
             this.timer.ResetTimer();
             this.guessedCount.innerHTML = 0;
             this.skippedCount.innerHTML = 0;
-            teamName.innerHTML = this.gameController.commandList[this.gameController.currendCommandIndx]; 
+            teamName.innerHTML = this.gameController.commandList[this.gameController.currentCommandIndx]; 
         });
 
         const startGameButton = new Button(this.container.idResolver.start_timer);
@@ -48,7 +48,7 @@ export class GameProcessPage extends AbstactPage{
         startGameButton.SetCommand(async ()=>{
             await this.gameController.LoadCollectionAsync();
             teamName.innerHTML = this.gameController.commandList[this.gameController.currentCommandIndx];
-            this.wordToGuessSpan.innerHTML = this.gameController.wordsToGuess[this.gameController.count];
+            this.wordToGuessSpan.innerHTML = this.gameController.wordsToGuess[this.gameController.count].word;
             this.timer.StartTimer();});
         
         const stopTimerButton = new Button(this.container.idResolver.stop_timer);

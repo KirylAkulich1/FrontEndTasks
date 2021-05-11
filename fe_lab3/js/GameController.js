@@ -1,5 +1,6 @@
 
 import {container} from './Container.js';
+import { Utils } from './utils/Utils.js';
 import { CommandResultWindow } from "./widgets/ModalWindow/CommandResultWindow.js";
 
 
@@ -48,13 +49,13 @@ export class GameController{
                 modalWindow.Hide();
                 const max = this.commandScore.reduce((a,b)=>a.score > b.score ? a : b);
                 alert(`Winner is ${max.command}. Score : ${max.score}`);
-                const gameHistory = JSON.parse(localStorage.getItem('gameHistory'));
+                let gameHistory = JSON.parse(localStorage.getItem('gameHistory'));
                 if(gameHistory == undefined){
                     gameHistory = [];
                 }
-                var today = new Date();
-                
-                today = parseInt(today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear()+"\nTime : "+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+                let today = new Date();
+
+                today = parseInt(today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
                 gameHistory.push({
                     currentDate : today,
                     winner : max.command,
@@ -88,7 +89,7 @@ export class GameController{
 
     async LoadCollectionAsync(){
         const words = await container.db.LoadCollectionAsync(this.settings.dictionary,this.settings.mode);
-        this.wordsToGuess = words;
+        this.wordsToGuess = Utils.getRandomWords(words,15);
     }
 
     GetNextWord(){

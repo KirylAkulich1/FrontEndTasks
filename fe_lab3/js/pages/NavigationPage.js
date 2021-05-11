@@ -2,6 +2,7 @@ import {AbstactPage} from './Page.js';
 import {NavigationView} from '../widgets/NavigationView.js';
 import {container} from '../Container.js';
 import renderer from '../navigation/Renderer.js';
+import { GameHistoryModalView } from '../widgets/ModalWindow/GameHistoryModalView.js';
 
 export class NavigationPage extends AbstactPage{
     navigationBar;
@@ -15,6 +16,14 @@ export class NavigationPage extends AbstactPage{
         this.navigationBar.SetCommand(
             'site-nav-to-game-rules',()=> { return container.navigationService.navigateToGameRulesAsync();}
         );
+
+        this.navigationBar.SetCommand(
+            this.container.idResolver.navigate_game_history,
+            async ()=>{
+                const gameHistoryModalWindow = new GameHistoryModalView();
+                await gameHistoryModalWindow.ShowModalAsync();
+            }
+        )
     }
 }
 

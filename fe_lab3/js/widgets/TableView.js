@@ -1,3 +1,4 @@
+import { View } from "./View.js";
 
 
 export class TableView extends View{
@@ -16,11 +17,12 @@ export class TableView extends View{
     }
 
     AddRow(columns){
-        row = document.createElement('tr');
+        let row = document.createElement('tr');
         columns.forEach(element=>{
             let td = document.createElement('td');
             td.innerHTML = element;
             row.appendChild(td);
         })
+        this.tableView.appendChild(row);
     }
 }

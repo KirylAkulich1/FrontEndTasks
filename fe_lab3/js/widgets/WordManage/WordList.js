@@ -30,19 +30,18 @@ export class WordList extends View{
 
     AddWord(wordToAdd){
         let listItem  = new WordListItem(wordToAdd,this.languageDropDownView.choosen,this.levelDropDownView.choosen);
-        console.log(listItem);
-        console.log(this.htmlView);
         this.htmlView.appendChild(listItem.htmlView);
         this.items.push(listItem);
     }
 
     async LoadWordsAsync(){
         const words = await this.container.db.LoadCollectionAsync(this.languageDropDownView.choosen,this.levelDropDownView.choosen);
-        console.log(words);
-        
+        console.log(this.htmlView);
         this.items.forEach(element=>{
+            console.log(element);
             this.htmlView.removeChild(element.htmlView);
-        })
+        });
+        this.items = [];
         words.forEach(element => {
             this.AddWord(element);
         });

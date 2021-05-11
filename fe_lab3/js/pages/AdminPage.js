@@ -9,12 +9,8 @@ export class AdminPage extends NavigationPage{
     async LoadPageAsync(){
         super.LoadPageAsync();
         await this.container.renderer.renderAdminPanelPageAsync();
-        if(true){
+        if(this.container.authService.user != undefined)
             await navigationService.navigateToErrorPageAsync();
-        }
-        else{
-            await this.container.renderer.renderAdminPanelPageAsync();
-        }
 
         this.wordTable = new WordList();
         await this.wordTable.LoadWordsAsync();

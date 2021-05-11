@@ -1,9 +1,11 @@
 import { TableView } from "../TableView.js";
+import { View } from "../View.js";
 import { ModalWindowBase } from "./ModalWindowBase.js";
 
 
+
 export class GameHistoryModalView extends ModalWindowBase{
-    async ShowModalasync(){
+    async ShowModalAsync(){
         super.ShowWindow();
         let htmlCode=await fetch("./views/pages/historypage.html")
             .then(r => r.text());
@@ -16,8 +18,8 @@ export class GameHistoryModalView extends ModalWindowBase{
             gameHistory.forEach(element => {
                 tableView.AddRow([
                     element.winner,
-                    element.score,
-                    element.date
+                    element.points,
+                    element.currentDate
                 ]);
         });
     }
