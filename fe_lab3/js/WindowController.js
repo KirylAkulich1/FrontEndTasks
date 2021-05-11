@@ -16,21 +16,28 @@ class WindowController{
       
     }
     
-    OnHashChanged(event){
+    async OnHashChanged(event){
         console.log('Hash changed');
-        if(window.location === 'gameproc.html'  && this.navigationService.currentState == undefined){
-            this.navigationService.navigateToErrorPageAsync();
-        }
-        this.navigationService.currentUrl = window.location;
-        container.logger.Log(this,window.location);
+        console.log(`current location ${window.location.hash}`);
+    
+        if(window.location.hash == '#admin.html'){
+            console.log('Try to navigate to admin');
+            if(container.authService.user == null){
+                let loginWindow = new LoginWindow();
+                await loginWindow.ShowWindowAsync();
+            }
+            else{
+                return container.navigationService.navigateToAdminPanelPageAsync();
+            }
+    }
     }
 
     async OnPopStateAsync(e){
         console.log('pop');
-        container.logger.Log(this,window.location);
+        /*container.logger.Log(this,window.location);
         this.navigationService.currentState = e.state;
         this.navigationService = window.location.href;
-        await this.navigationService.currentState.LoadPageAsync();
+        await this.navigationService.currentState.LoadPageAsync();*/
     }
     
     async OnWindowLoaded(e){
@@ -40,16 +47,6 @@ class WindowController{
 
         if(window.location == 'gameproc.html'  && container.navigationService.currentState == undefined){
             return container.navigationService.navigateToErrorPageAsync();
-        }
-
-        if(window.location.pathname == 'admin.html'){
-            console.log('Try to navigate to admin');
-            if(container.authService.user == null){
-                this.navigationService.navigateToAdminPanelPageAsync();
-                //let loginWindow = new LoginWindow();
-                //await loginWindow.ShowWindowAsync();
-            }
-            return container.navigationService.navigateToAdminPanelPageAsync();
         }
 
         if((window.location.pathname === '/' ) && container.navigationService.currentState === undefined){
@@ -63,10 +60,8 @@ class WindowController{
         alert("CTRL+A"); 
         }
         else if (evt.shiftKey && evt.keyCode == 9){ //Shif+TAB
-            alert("Shift+TAB");
-            this.navigationService.navigateToAdminPanelPageAsync();
-           // let loginWindow = new LoginWindow();
-            //await loginWindow.ShowWindowAsync();
+            let loginWindow = new LoginWindow();
+            await loginWindow.ShowWindowAsync();
             }
     }
 }

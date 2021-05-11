@@ -2,7 +2,7 @@ import { View } from "../View.js";
 
 
 export class CommandListItem{
-    html_code = '<input class="underscored-input" placeholder="team1"/>';
+    html_code = '<input class="underscored" placeholder="team1"/>';
     html_elemet;
     html_input;
     command_name;

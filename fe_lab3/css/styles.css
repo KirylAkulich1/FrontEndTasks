@@ -132,6 +132,25 @@ footer{
   text-align: center;
   text-decoration: none;
 }
+
+.admin-panel .destructive{
+  font-weight: bold;
+  text-align: center;
+  border-radius: 1em;
+  border-width: .2em;
+  border-color: rgb(221, 111, 111);
+  color: rgb(221, 111, 111);
+}
+
+.admin-panel .update{
+  font-weight: bold;
+  text-align: center;
+  border-radius: 1em;
+  border-width: .2em;
+  border-color: rgb(221, 171, 63);
+  color:  rgb(221, 171, 63);
+}
+
 section{
     text-align: center;
 }
@@ -220,11 +239,11 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #050c44;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #8d6aee;
 }

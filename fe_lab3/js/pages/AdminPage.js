@@ -8,7 +8,8 @@ export class AdminPage extends NavigationPage{
     wordTable;
     async LoadPageAsync(){
         super.LoadPageAsync();
-        if(this.container.authService.user == null){
+        await this.container.renderer.renderAdminPanelPageAsync();
+        if(true){
             await navigationService.navigateToErrorPageAsync();
         }
         else{
@@ -16,5 +17,6 @@ export class AdminPage extends NavigationPage{
         }
 
         this.wordTable = new WordList();
+        await this.wordTable.LoadWordsAsync();
     }
 }

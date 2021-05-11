@@ -9,10 +9,12 @@ export class CommandListPage extends NavigationPage{
     addCommandButton;
     deleteCommandButton;
     startButton;
-    async LoadPageAsync(){
+    settings;
+    async LoadPageAsync(settings){
         super.LoadPageAsync();
         await this.container.renderer.renderCommandsPageAsync();
 
+        this.settings = settings;
         let appConfig = JSON.parse(window.localStorage.getItem('appConfig'));
         let commandIndexes = Utils.getRandomNumbers(appConfig.commands);
 
@@ -28,7 +30,10 @@ export class CommandListPage extends NavigationPage{
         this.deleteCommandButton.SetCommand(()=>this.commandList.RemoveLastName());
 
         this.startButton = new Button(this.container.idResolver.start_game);
-        this.startButton.SetCommand(()=>this.container.navigationService.navigateToGameProcessAsync());
+        this.startButton.SetCommand(()=>{
+            this.settings.commands = this.commandList.commandNames;
+            this.container.navigationService.navigateToGameProcessAsync(settings);
+        });
         
     }
 }

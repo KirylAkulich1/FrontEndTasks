@@ -30,8 +30,17 @@ export class SettingsPage extends NavigationPage{
         }
 
         this.toCommandListButton = new Button(this.container.idResolver.to_commands_button);
-        this.toCommandListButton.SetCommand(()=>this.container.navigationService.navigateToCommandListAsync());
-        console.log(this.toCommandListButton)
-        console.log(this.settings);
+        this.toCommandListButton.SetCommand(()=> {
+            if(this.ValidateSettings())
+                this.container.navigationService.navigateToCommandListAsync(this.settings);
+            else
+                alert('Please, choose all options');});
+    }
+
+
+    ValidateSettings(){
+        return 'duration' in this.settings
+            && 'mode' in this.settings
+            && 'dictionary' in this.settings
     }
 }

@@ -1,17 +1,17 @@
-.underscored-input{
+.underscored{
     background-color: inherit;
     color: gold;
-    border-color: chartreuse;
+    border-color: rgb(255, 196, 0);
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
 }
-.underscored-input:hover::after {
+.underscored:hover::after {
   width: 100%;
   right: 0;
 }
 
-.underscored-input::after {
+.underscored::after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -59,6 +59,7 @@ section header{
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 2em;
+  
   padding-top: 1em;
 }
 

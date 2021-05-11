@@ -27,5 +27,40 @@ export class Database{
             return commands;
         });
     }
-    
+    async AddWordAsync(eng,level,insertWord){
+        let wordToAdd = {word:insertWord,random:Math.random()};
+        return  this.db.collection(`words/${eng}/${level}`)
+        .add(wordToAdd)
+        .then(ref=>{
+            wordToAdd.id = ref.id;
+            console.log(wordToAdd);
+            return wordToAdd});
+        
+    }
+
+    async LoadCollectionAsync(leng,level){
+        return this.db.collection(`words/${leng}/${level}`)
+        .get()
+        .then((snaphot)=>{
+            const data = snaphot.docs.map((doc)=>({
+                id:doc.id,
+                ...doc.data(),
+            }))
+            return data;
+        })
+    }
+
+    async UpdateWordAsync(leng,level,newWord){
+        await this.db.collection(`words/${leng}/${level}`)
+        .doc(newWord.id)
+        .update({word : newWord.word });
+    }
+
+    async DeleteWordAsync(leng,level,deleteWord){
+        console.log(deleteWord);
+        await this.db.collection(`words/${leng}/${level}`)
+        .doc(deleteWord.id)
+        .delete();
+    }
+
 }

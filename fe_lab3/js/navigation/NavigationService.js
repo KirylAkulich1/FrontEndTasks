@@ -35,18 +35,18 @@ export class NavigationService{
         await this.currentState.LoadPageAsync();
     }
 
-    async navigateToGameProcessAsync(){
+    async navigateToGameProcessAsync(settings){
         console.log('Navigate to game proc');
         this.currentState = new GameProcessPage();
         this.navigateToPage(urlList.gameProc);
-        await this.currentState.LoadPageAsync();
+        await this.currentState.LoadPageAsync(settings);
     }
 
-    async navigateToCommandListAsync(){
+    async navigateToCommandListAsync(settings){
         console.log('Navigate to command list');
         this.currentState = new CommandListPage();
         this.navigateToPage(urlList.commands);
-        await this.currentState.LoadPageAsync();
+        await this.currentState.LoadPageAsync(settings);
     }
 
     async navigateToHomePageAsync(){
@@ -69,7 +69,7 @@ export class NavigationService{
         window.history.back();
     }
     navigateToPage(url){
-        window.history.pushState({},null,url)
+        window.location.hash = url;
     }
 
 

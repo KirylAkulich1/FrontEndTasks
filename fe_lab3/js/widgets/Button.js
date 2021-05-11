@@ -2,7 +2,7 @@ import {View} from './View.js'
 
 export class Button extends View{
     constructor(buttonId){
-        super()
+        super();
         if(buttonId != undefined){
         this.htmlView = document.getElementById(buttonId);
         console.log(document.getElementById(buttonId));

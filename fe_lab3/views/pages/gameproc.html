@@ -1,21 +1,24 @@
 
         <main id = 'page-container'>
             <div class="game-info">
-                <span class="team-name">Team1</span>
+                <span id="team-name" class="team-name">Team1</span>
                 <label>You scrore </label>
-                <span id='guessed-score' class="guessed-score">999</span>
+                <span id='guessed-score' class="guessed-score">0</span>
             </div>
             <div class="game-word-area">
-                <span class="guess-word">word to guess</span>             
+                <span id ="word-to-guess" class="guess-word">word to guess</span>             
             </div>
             <div class="game-info bottom">
                 <label>Skipped</label>
-                <span id='skipped-score' class="skipped-score">9999</span>
+                <span id='skipped-score' class="skipped-score">0</span>
             </div>
             <div class="game-control-container ">
-                <span id="game-timer" class="timer">10:10</span>
-                <button id='start-timer' class="guessed-buutton  secondary-button">Guessed</button>
-                <button id ='skip-word' class="skip-button secondary-button">Skip</button>
+                <span id="game-timer" class="timer">0</span>
+                <button id='start-timer' class="guessed-buutton  secondary-button">Start</button>
                 <button id ='stop-timer' class="secondary-button">Stop</button>
+            </div>
+            <div class="game-control-container">
+                <button id ='guessed-word' class="guessed-buutton secondary-button">Guessed</button>
+                <button id ='skip-word' class="skip-button secondary-button">Skip</button>
             </div>
         </main>

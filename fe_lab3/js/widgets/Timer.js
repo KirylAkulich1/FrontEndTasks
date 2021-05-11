@@ -2,19 +2,20 @@ import { View } from "./View.js";
 
 
 export class Timer extends View{
-    view;
     timeout;
     handler;
     totalTime;
+    initTime;
     timer;
     timeEndHandler;
     constructor(id,timeout,totalTime,onTickHandler,onTimeEndHandler){
         super();
-        this.view = document.getElementById(id);
+        this.htmlView = document.getElementById(id);
         this.handler = onTickHandler;
         this.timeEndHandler = onTimeEndHandler;
         this.timeout = timeout;
         this.totalTime = totalTime;
+        this.initTime = totalTime;
     }
     StartTimer(){
         if(this.timer != null){
@@ -27,7 +28,7 @@ export class Timer extends View{
                 this.timeEndHandler();
             }
             let seconds = this.totalTime / 1000;
-            this.view.innerHTML = seconds;
+            this.htmlView.innerHTML = seconds;
             this.handler();
         },this.timeout)
     }
@@ -35,6 +36,14 @@ export class Timer extends View{
     StopTimer(){
         if(this.timer != null){
             window.clearInterval(this.timer);
+        }
+    }
+
+    ResetTimer(){
+        if(this.timer != null){
+            window.clearInterval(this.timer);
+            this.totalTime = this.initTime;
+            this.htmlView.innerHTML  = this.initTime/1000;
         }
     }
 }

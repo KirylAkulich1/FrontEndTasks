@@ -5,6 +5,9 @@
     text-decoration: none;
     transition-property: all;
     transition-duration: 0.5s;
+    border-width: 0em;
+    background-color: transparent;
+
 }
 
 .site-nav__ref:hover{

@@ -5,7 +5,7 @@ export class CommandListView extends View{
     itemsCollection;
     htmlListView;
     itemType;
-    
+    commandNames=[];
     constructor(id,itemType){
         super();
         this.itemsCollection = [];
@@ -16,9 +16,11 @@ export class CommandListView extends View{
     RemoveLastName(){
         let last_item = this.itemsCollection.pop();
         this.htmlListView.removeChild(last_item.html_elemet);
+        this.commandNames.pop();
     }
 
     AddCommandName(commandName){
+        this.commandNames.push(commandName);
         let itemToPush = new this.itemType(commandName);
         this.itemsCollection.push(itemToPush);
         console.log(itemToPush);

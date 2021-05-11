@@ -25,4 +25,4 @@ class Container{
     }
 }
 
-export let container = new Container();
+export const container = new Container();
