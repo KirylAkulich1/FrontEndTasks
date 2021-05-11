@@ -48,8 +48,8 @@ class WindowController{
         if(window.location == 'gameproc.html'  && container.navigationService.currentState == undefined){
             return container.navigationService.navigateToErrorPageAsync();
         }
-
-        if((window.location.pathname === '/' ) && container.navigationService.currentState === undefined){
+        console.log(window.location.hash);
+        if((window.location.hash == '' ) && container.navigationService.currentState === undefined){
             return container.navigationService.navigateToHomePageAsync();
         }
     }
