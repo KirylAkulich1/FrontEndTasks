@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+<head>
+    <meta charset="uft-8">
+
+    <link rel="stylesheet" href="css/styles.css" />
+    
+     <link rel="stylesheet" href="css/site-nav/site-nav.css" />
+    <link rel="stylesheet" href="css/site-nav/item/site-nav__item.css"/>
+    <link rel="stylesheet" href="css/site-nav/item/right/site-nav__item-right.css"/>
+    <link rel="stylesheet" href="css/site-nav/ref/site-nav__ref.css"/>
+
+    <link rel="stylesheet" href="css/toggle/fill/toggle_fill.css" />
+    <link rel="stylesheet" href="css/toggle/input/toggle_input.css" />
+    <link rel="stylesheet" href="css/toggle/toggle.css" />  
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-heading">Alias</h1>
+        </header>
+        <nav>
+            <ul class="site-nav">
+                <li class="site-nav__item"><a class="site-nav__ref" href="index.html">Main</a></li>
+                <li class="site-nav__item"><a class="site-nav__ref" href="gamerules.html">Game Rules</a></li>
+                <li class="site-nav__item site-nav__item-right">
+                    <a>Theme</a>
+                </li>
+                <li class="site-nav__item">
+                    <label class="toggle" for="myToggle">
+                        <input class="toggle__input" name="" type="checkbox" id="myToggle" onclick="toggleTheme()">
+                        <div class="toggle__fill">
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <figure class="game-logo">
+                <img class="flex-nonexpend-img" src="static/alias_img.png" />
+                <img class="flex-nonexpend-img" src="static/online_img.png"/>
+            </figure> 
+
+            <section >
+                <h1>Online version of game
+                    <span> Alias Party</span>
+                </h1>
+                <h2>
+                    Created by board game Alias,including items
+                    (gameboard,chips,cards with words,sand glasses).
+                    Now you can play Alias on any device with browser.
+                </h2>
+            </section>
+            <a class="primary-button"href="settings.html" >Play</a>
+            <a class="animated-ref" href="gamerules.html">Game Rules</a>
+        </main> 
+        <footer>
+            <p>© 2021 Kirill Akulich</p>
+        </footer>
+    </div>
+</body>
+</html>

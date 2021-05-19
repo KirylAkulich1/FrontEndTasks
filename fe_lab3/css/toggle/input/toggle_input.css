@@ -1,0 +1,12 @@
+
+  .toggle__input {
+    display: none;
+  }
+
+  .toggle__input:checked ~ .toggle__fill {
+    background: #009578;
+  }
+  
+  .toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--height));
+}

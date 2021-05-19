@@ -1,0 +1,152 @@
+.theme-light {
+    --text-color: rgb(255, 187, 0);
+    --color-primary: #f3f70f;
+    --color-secondary: #3b00c5;
+    --color-accent: #fd6f53;
+    --font-color: #000000;
+    --bg-color : rgb(112, 153, 187);
+    --nav-ref-color: rgb(120, 0, 175);
+    --timer-bg-color:rgb(0, 0, 0);
+    --timer-text-color:rgb(213, 225, 243);
+    --middle-gradient:rgb(255, 208, 0);
+  }
+.theme-dark {
+    --text-color: rgb(219, 119, 4);
+    --color-primary: #ffae00;
+    --color-secondary: #c884ff;
+    --color-accent: #12cdea;
+    --font-color: #ffffff;
+    --bg-color : rgb(36, 73, 129);
+    --nav-ref-color: rgb(220, 196, 243);
+    --timer-text-color:rgb(0, 0, 0);
+    --timer-bg-color:rgb(213, 225, 243);
+    --middle-gradient:rgb(255, 238, 2);
+  }
+:root{
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after{
+    box-sizing: inherit;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+header,nav{
+  grid-column: 1 / 4;
+  grid-row: span 1;
+}
+
+.page-heading{
+  margin: 0;
+}
+
+header > h1{
+  animation: color-change 2s infinite;
+  text-align: center;
+}
+
+main{
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer{
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+    background-color: black;
+    color: rgb(199, 199, 199);
+    display: flex;
+    justify-content: center;
+}
+
+.titile {
+    padding : 1.5em;
+    background-color: #ffff;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex > * + *{
+    margin-top: 0;
+    margin-left: 1.5em;
+}
+
+.flex-nonexpend-img{
+    flex-grow: 0;
+}
+
+.primary-button{
+    background-color: yellow;
+    padding: 1em 3em;
+    border: none;
+    border-radius: 1em;
+    font-size: large;
+    color: #380c49;
+    font-weight: bold;
+    background-image: linear-gradient(180deg,var(--color-primary),var(--middle-gradient),var(--color-primary));
+    text-align: center;
+    text-decoration: none;
+}
+
+.secondary-button{
+    border-color: var(--color-secondary);
+    padding: 1em 3em;
+    border-radius: 1em;
+    border-width: .2em;
+    background: inherit;
+    font-size: large;
+    color: var(--color-secondary);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+section{
+    text-align: center;
+}
+
+.animated-ref{
+    transition-property: all;
+    transition-duration: 0.5s;
+    margin-top: 1em;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.animated-ref:hover{
+    background-color: var(--nav-ref-color);
+    border-radius: 0.5em;
+    padding: 1em 2em;
+    text-align: center;
+}
+
+.game-logo img{
+  display: block;
+}
+
+@keyframes color-change {
+  0% { color: rgb(255, 238, 0); }
+  50% { color: rgb(111, 0, 255); }
+  100% { color: rgb(251, 255, 0); }
+}
+

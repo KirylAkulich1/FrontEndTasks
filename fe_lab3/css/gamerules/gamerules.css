@@ -1,0 +1,58 @@
+article{
+    padding: .5em .5em;
+}
+article > header{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration:underline;
+}
+
+p[class$="rule"]{
+    text-indent: 1em;
+}
+
+.good-rule{
+    font-style: italic;
+    color: chartreuse;
+}
+
+.forbidden-rule{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    color:rgb(218, 68, 68);
+}
+
+.guessed-rule{
+    font-style: oblique;
+}
+
+.win-rule{
+    font-style: normal;
+    color: darkorange;
+    padding-bottom: .5em;
+}
+p:before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.good-rule::before{
+    background: url("static/accept.png") no-repeat;
+}
+
+.forbidden-rule{
+    background: url("static/forbidden.png") no-repeat;
+}
+
+.guessed-rule{
+    background: url("static/guessed.png") no-repeat;
+}
+
+.win-rule{
+    background: url("static/winner.png") no-repeat;
+}
